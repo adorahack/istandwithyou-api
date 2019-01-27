@@ -74,11 +74,11 @@ class Candidates implements CandidateContract{
 
 	/**
 	 * @param $id
-	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 * @return \Illuminate\Database\Eloquent\Collection
 	 */
 	public function votes($id)
 	{
-		return $this->candidate->votes()->where('id', $id);
+		return $this->candidate->find($id)->votes;
 	}
 
 	/**
