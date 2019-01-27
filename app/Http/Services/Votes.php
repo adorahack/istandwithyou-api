@@ -41,7 +41,7 @@ class Votes implements VoteContract{
 	 */
 	public function show($id)
 	{
-		return Cache::rememberForever('vote-'.$id, function ($id) {
+		return Cache::rememberForever('vote-'.$id, function () use ($id) {
 			return $this->vote->with('candidates')->find($id);
 		});
 	}

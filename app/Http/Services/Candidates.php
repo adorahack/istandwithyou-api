@@ -42,7 +42,7 @@ class Candidates implements CandidateContract{
 	 */
 	public function show($id)
 	{
-		return Cache::rememberForever('candidate-'.$id, function ($id) {
+		return Cache::rememberForever('candidate-'.$id, function () use ($id) {
 			return $this->candidate->with('votes')->find($id);
 		});
 	}
