@@ -52,8 +52,12 @@ class Votes implements VoteContract{
 	 */
 	public function create($data)
 	{
+		if(true === $data['anonymous']){
+			$this->vote->name = 'anonymous';
+		}else{
+			$this->vote->name = $data['name'];
+		}
 		$this->vote->candidate_id = $data['candidate_id'];
-		$this->vote->name = $data['name'];
 		$this->vote->reason = $data['reason'];
 		$this->vote->anonymous = $data['anonymous'];
 
