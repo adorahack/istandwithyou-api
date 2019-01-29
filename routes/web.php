@@ -11,6 +11,49 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->group(['prefix' => 'candidate'], function () use ($router) {
+
+	$router->get('/', [
+		'uses' => 'CandidateController@all'
+	]);
+
+	$router->get('/{id}', [
+		'uses' => 'CandidateController@show'
+	]);
+
+	$router->get('/{id}/votes', [
+		'uses' => 'CandidateController@votes'
+	]);
+
+	$router->put('/{id}', [
+		'uses' => 'CandidateController@update',
+		'middleware' => 'admin'
+	]);
+
+	$router->post('/', [
+		'uses' => 'CandidateController@create',
+		'middleware' => 'admin'
+	]);
+
+	$router->delete('/{id}', [
+		'uses' => 'CandidateController@delete',
+		'middleware' => 'admin'
+	]);
+
+});
+
+$router->group(['prefix' => 'vote'], function () use ($router) {
+
+	$router->get('/', [
+		'uses' => 'VoteController@all'
+	]);
+
+	$router->get('/{id}', [
+		'uses' => 'VoteController@show'
+	]);
+
+	$router->post('/', [
+		'uses' => 'VoteController@create'
+	]);
+
 });
