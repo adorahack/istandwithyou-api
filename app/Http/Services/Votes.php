@@ -69,4 +69,20 @@ class Votes implements VoteContract{
 		return $this->vote;
 
 	}
+
+	/**
+	 * @param $id
+	 * @return bool
+	 */
+	public function delete($id)
+	{
+		$this->vote->destroy($id);
+
+		Cache::forget('votes');
+		Cache::forget('vote-'.$id);
+
+		return true;
+
+	}
+
 }
