@@ -61,6 +61,17 @@ class VoteController extends Controller
 	}
 
 	/**
+	 * Delete candidate
+	 *
+	 * @param $id
+	 * @return \Illuminate\Http\JsonResponse
+	 */
+	public function delete($id)
+	{
+		return response()->json($this->vote->delete($id), 200);
+	}
+
+	/**
 	 * Validate request input
 	 *
 	 * @param array $data
