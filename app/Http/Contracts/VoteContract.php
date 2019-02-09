@@ -29,4 +29,10 @@ interface VoteContract
 	 * @return Vote
 	 */
 	public function create($data);
+
+	/**
+	 * @param $id
+	 * @return boolean
+	 */
+	public function delete($id);
 }
