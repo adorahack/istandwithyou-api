@@ -57,7 +57,8 @@ $router->group(['prefix' => 'vote'], function () use ($router) {
 	]);
 
 	$router->delete('/{id}', [
-		'uses' => 'VoteController@delete'
+		'uses' => 'VoteController@delete',
+		'middleware' => 'admin'
 	]);
 
 });
