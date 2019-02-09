@@ -67,6 +67,10 @@ $app->singleton(
 //     'auth' => App\Http\Middleware\Authenticate::class,
 // ]);
 
+$app->middleware([
+	\Barryvdh\Cors\HandleCors::class,
+]);
+
  $app->routeMiddleware([
      'admin' => App\Http\Middleware\AdminMiddleware::class
  ]);
@@ -86,10 +90,12 @@ $app->singleton(
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
+$app->configure('cors');
 
 $app->register(App\Providers\VoteServiceProvider::class);
 $app->register(App\Providers\CandidateServiceProvider::class);
 $app->register(Illuminate\Redis\RedisServiceProvider::class);
+$app->register(Barryvdh\Cors\ServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
