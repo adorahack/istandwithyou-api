@@ -31,9 +31,7 @@ class Candidates implements CandidateContract{
 	 */
 	public function all()
 	{
-		return Cache::rememberForever('candidates', function () {
-			return $this->candidate->with('votes')->get();
-		});
+		return $this->candidate->with('votes')->get();
 	}
 
 	/**
