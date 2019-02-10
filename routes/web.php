@@ -53,7 +53,8 @@ $router->group(['prefix' => 'vote'], function () use ($router) {
 	]);
 
 	$router->post('/', [
-		'uses' => 'VoteController@create'
+		'uses' => 'VoteController@create',
+		'middleware' => 'spoof'
 	]);
 
 	$router->delete('/{id}', [
