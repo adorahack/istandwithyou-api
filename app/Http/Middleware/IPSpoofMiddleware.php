@@ -45,8 +45,8 @@ class IPSpoofMiddleware
 				return response()->json('User has voted within the hour', 403);
 			}
 
-			$this->ip->updated_at = $time;
-			$this->ip->save();
+			$ip->updated_at = $time;
+			$ip->save();
 			return $next($request);
 
 		}else{
