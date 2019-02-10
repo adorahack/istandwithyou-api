@@ -42,7 +42,7 @@ class IPSpoofMiddleware
 			$diff = $to->diffInMinutes($from);
 
 			if(60 > $diff){
-				return response('User has voted within the hour', 403);
+				return response()->json('User has voted within the hour', 403);
 			}
 
 			$this->ip->updated_at = $time;
@@ -50,16 +50,7 @@ class IPSpoofMiddleware
 			return $next($request);
 
 		}else{
-			return response('Could not ascertain client IP address', 403);
+			return response()->json('Could not ascertain client IP address', 403);
 		}
-
-
-
-//		if ($request->headers->has('Admin-Key')) {
-//
-//
-//		}
-
-//		return response('Forbidden', 403);
 	}
 }
