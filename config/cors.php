@@ -17,9 +17,9 @@ return [
 	|
 	*/
 	'supportsCredentials' => false,
-	'allowedOrigins' => ['istandwithyou.com.ng'],
+	'allowedOrigins' => ['https://www.istandwithyou.com.ng'],
 	'allowedHeaders' => ['Content-Type', 'X-Requested-With'],
-	'allowedMethods' => ['*'], // ex: ['GET', 'POST', 'PUT',  'DELETE']
+	'allowedMethods' => ['GET', 'POST', 'OPTIONS'],
 	'exposedHeaders' => [],
 	'maxAge' => 0,
 ];
