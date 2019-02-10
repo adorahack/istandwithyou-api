@@ -71,9 +71,13 @@ $app->middleware([
 	\Barryvdh\Cors\HandleCors::class,
 ]);
 
- $app->routeMiddleware([
-     'admin' => App\Http\Middleware\AdminMiddleware::class
- ]);
+$app->routeMiddleware([
+	'admin' => App\Http\Middleware\AdminMiddleware::class
+]);
+
+$app->routeMiddleware([
+	'spoof' => App\Http\Middleware\IPSpoofMiddleware::class
+]);
 
 /*
 |--------------------------------------------------------------------------
